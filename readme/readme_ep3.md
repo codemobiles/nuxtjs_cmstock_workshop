@@ -7,7 +7,9 @@
 
 ## Code
 
-```vue
+Path: `app.vue`
+
+```js
 <template>
     <div>
         <h1 class="mydivclass">{{ msg }}</h1>
