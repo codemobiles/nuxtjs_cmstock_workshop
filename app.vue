@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1 class="mydivclass">{{ msg }}</h1>
+        <h1 class="mydivclass"
+        style="color: green;"
+        >{{ msg }}</h1>
         <input type="text" placeholder="Search">
         <h3>Image From public/</h3>
         <img src="./images/dog.jpeg" alt="Dog logo">
@@ -15,6 +17,6 @@ const msg = 'My CMS Stock application'
 
 <style scoped>
 .mydivclass {
-    color: red;
+    color: orange;
 }
 </style>
