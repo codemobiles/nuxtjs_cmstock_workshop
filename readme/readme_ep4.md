@@ -1,10 +1,10 @@
-# Nuxt 3 CMS Stock Course EP.3
+# Nuxt 3 CMS Stock Course EP.4
 
 ## Outcome
 
-- Understand public/ folder in Nuxt 3 and how to use it
-- Understand assets/ folder in Nuxt 3 and how to use it
-- Know how to serve static files in Nuxt 3
+-   Understand public/ folder in Nuxt 3 and how to use it
+-   Understand assets/ folder in Nuxt 3 and how to use it
+-   Know how to serve static files in Nuxt 3
 
 ## Documentation for Public folder
 
