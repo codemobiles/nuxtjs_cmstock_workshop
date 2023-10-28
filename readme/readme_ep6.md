@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.3
+# Nuxt 3 CMS Stock Course EP.6 - Basic Routing
 
 ## Outcome
 
