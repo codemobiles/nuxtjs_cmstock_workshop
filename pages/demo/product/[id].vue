@@ -2,6 +2,8 @@
     <div>
         <h1>Product Page</h1>
         <h2>Product ID: {{ route.params.id }}</h2>
+        <h3>Color: {{ route.query.color }}</h3>
+        <h3>Brand: {{ route.query.brand }}</h3>
     </div>
 </template>
 
