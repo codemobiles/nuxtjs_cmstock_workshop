@@ -5,30 +5,20 @@
             second-line="This is my 2nd"
             :balance="100"
         ></DemoMyComponentOne>
+        <hr />
+        <h1>My Component 2</h1>
+        <DemoMyComponentTwo :author="author"></DemoMyComponentTwo>
     </div>
 </template>
 
 <script setup lang="ts">
-type CarType = "Sedan" | "SUV" | "Hatchback";
+import type { TAuthor } from "~/types/author.type";
 
-// interface Car {
-//     brand: string;
-//     model: string;
-//     year: number;
-//     type: CarType;
-// }
-
-type Car = {
-    brand: string;
-    model: string;
-    year: number;
-    type: CarType;
-};
-const car = reactive<Car>({
-    brand: "Toyota",
-    model: "Corolla",
-    year: 2000,
-    type: "Sedan",
+const author = reactive<TAuthor>({
+    firstName: "John",
+    lastName: "Doe2",
+    email: "john.doe@gmail.com",
+    date: new Date(),
 });
 </script>
 
