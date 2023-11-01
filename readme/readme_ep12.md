@@ -1,3 +1,21 @@
+# Nuxt 3 CMS Stock Course EP.12 - Type vs Interface
+
+## Outcome
+
+-   Understand the difference between `type` and `interface`
+-   Learn how to use `reactive` in component
+
+## Documentation for Component
+
+https://blog.logrocket.com/types-vs-interfaces-typescript/
+
+## Setup
+
+1. Add following in `components.vue`
+
+```vue
+/* pages/component.vue */
+
 <template>
     <div>
         <DemoMyComponentOne
@@ -33,3 +51,4 @@ const car = reactive<Car>({
 </script>
 
 <style scoped></style>
+```
