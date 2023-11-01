@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <NuxtLayout>
         <!-- <h1 class="mydivclass"
         style="color: green;"
         >{{ msg }}</h1>
@@ -9,7 +9,7 @@
         <h3>Image From assets/</h3>
         <img src="~/assets/images/mountain.jpg" alt="Dog logo"> -->
         <NuxtPage> </NuxtPage>
-    </div>
+    </NuxtLayout>
 </template>
 
 <script setup lang="ts">

@@ -12,6 +12,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+    layout: "demo-product",
+});
+
 const route = useRoute();
 const router = useRouter();
 
