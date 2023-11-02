@@ -7,7 +7,7 @@
 
 ## Documentation for Component
 
-https://nuxt.com/docs/guide/directory-structure/layouts
+https://nuxt.com/docs/guide/directory-structure/utils
 
 ## Setup
 
