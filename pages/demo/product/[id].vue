@@ -7,6 +7,8 @@
         <NuxtLink active-class="active" to="/demo/product/1?color=black&brand=B"
             >Home Demo</NuxtLink
         >
+        <h4>Random Arr: {{ randomEntry(arr) }}</h4>
+        <h4>Price: {{ formatNumber(10000) }}</h4>
         <button @click="goTo('2')">Go to Product 2</button>
     </div>
 </template>
@@ -18,6 +20,8 @@ definePageMeta({
 
 const route = useRoute();
 const router = useRouter();
+
+const arr = [1, 2, 3, 4, 5];
 
 const goTo = (id: string) => {
     router.push(`/demo/product/${id}?color=red&brand=A`);
