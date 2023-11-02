@@ -8,7 +8,7 @@
 
 ## Documentation for Component
 
-https://nuxt.com/docs/guide/directory-structure/composables
+https://nuxt.com/docs/api/composables/use-fetch
 
 ## Setup
 
