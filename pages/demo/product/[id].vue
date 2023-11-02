@@ -16,6 +16,7 @@
 <script setup lang="ts">
 definePageMeta({
     layout: "demo-product",
+    middleware: "demo-product-middleware",
 });
 
 const route = useRoute();
