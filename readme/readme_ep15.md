@@ -5,7 +5,7 @@
 -   Learn behaviour of `utils` in Nuxt 3
 -   Learn how to use `utils` in Nuxt 3 with `components`
 
-## Documentation for Component
+## Documentation for this episode
 
 https://nuxt.com/docs/guide/directory-structure/utils
 
