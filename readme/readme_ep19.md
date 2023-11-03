@@ -6,7 +6,7 @@
 -   Learn when we have to use `Server Side Rendering` in Nuxt 3
 -   Learn how to implement `Server Side Rendering` in `components` and `pages`
 
-## Documentation for Component
+## Documentation for this episode
 
 https://nuxt.com/docs/guide/directory-structure/composables
 
