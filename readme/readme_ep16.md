@@ -5,7 +5,7 @@
 -   Learn behaviour of `composable` in Nuxt 3
 -   Learn how to use `composable` in Nuxt 3 with `components` and `pages`
 
-## Documentation for Component
+## Documentation for this episode
 
 https://nuxt.com/docs/guide/directory-structure/composables
 
