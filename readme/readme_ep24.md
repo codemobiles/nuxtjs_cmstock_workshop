@@ -9,7 +9,7 @@
 
 ## Documentation for this episode
 
-https://nuxt.com/docs/api/composables/use-runtime-config
+https://nuxt.com/docs/api/composables/use-lazy-fetch
 
 ## Setup
 
