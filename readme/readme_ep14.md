@@ -6,7 +6,7 @@
 -   Learn how to use `layouts` in Nuxt 3 with `components`
 -   Learn how to use `layouts` in Nuxt 3 with `props`
 
-## Documentation for Component
+## Documentation for this episode
 
 https://nuxt.com/docs/guide/directory-structure/layouts
 
