@@ -6,7 +6,7 @@
 -   Learn when we have to use `useFetch` in Nuxt 3
 -   Learn how to implement `useFetch` in `components` and `pages`
 
-## Documentation for Component
+## Documentation for this episode
 
 https://nuxt.com/docs/api/composables/use-fetch
 
