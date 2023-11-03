@@ -6,7 +6,7 @@
 -   Learn how to import and export `type` and `interface`
 -   Learn how to use `reactive` with Generic in component
 
-## Documentation for Component
+## Documentation for this episode
 
 https://blog.logrocket.com/types-vs-interfaces-typescript/
 
