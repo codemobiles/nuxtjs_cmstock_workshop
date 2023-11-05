@@ -26,4 +26,4 @@ https://nuxt.com/docs/api/components/nuxt-link
 <style scoped></style>
 ```
 
-2. Go visit `http://localhost:3000/demo/components` and see the result
+2. Go visit `http://localhost:3000/demo/components/nuxt-link` and see the result
