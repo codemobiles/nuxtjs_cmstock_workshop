@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@nuxt/devtools": "latest",
+        "@nuxt/image": "^1.0.0",
         "dayjs-nuxt": "^2.1.9",
         "nuxt": "^3.8.0",
         "vue": "^3.3.7",
