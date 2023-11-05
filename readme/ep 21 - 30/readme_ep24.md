@@ -48,4 +48,4 @@ watch(secretEnvResp, (newPosts) => {
 
 When we visit `http://localhost:3000/demo/composables/use-lazy-fetch` we should see following result
 
-![Result](./images/ep24/result1.png)
+![Result](../images/ep24/result1.png)

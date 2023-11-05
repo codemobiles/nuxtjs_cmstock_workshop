@@ -41,4 +41,4 @@ const {
 
 When we visit `http://localhost:3000/demo/ofetch` the page will show `Loading....` and after that it will show `Fetch success`
 
-![Result](./images/ep18/result1.png)
+![Result](../images/ep18/result1.png)

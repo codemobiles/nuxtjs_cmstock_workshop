@@ -70,8 +70,8 @@ When we visit `http://localhost:3000/demo/composables/use-runtime-config` we sho
 
 1. `this_is_public_env` should be shown in browser
 
-![Result](./images/ep23/result1.png)
+![Result](../images/ep23/result1.png)
 
 2. `config this_is_secret_env` should be shown in terminal
 
-![Result2](./images/ep23/result2.png)
+![Result2](../images/ep23/result2.png)

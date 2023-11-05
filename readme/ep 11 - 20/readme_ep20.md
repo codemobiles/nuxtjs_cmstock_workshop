@@ -47,4 +47,4 @@ export default defineNuxtConfig({
 
 When we visit `http://localhost:3000/demo/modules/dayjs` we should see following result
 
-![Result](./images/ep20/result1.png)
+![Result](../images/ep20/result1.png)

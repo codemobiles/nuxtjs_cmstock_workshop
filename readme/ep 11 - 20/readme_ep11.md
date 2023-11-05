@@ -75,4 +75,4 @@ const props = defineProps({
 
 This is the result of display with component in `component.vue`
 
-![Result](./images/ep11/result1.png)
+![Result](../images/ep11/result1.png)

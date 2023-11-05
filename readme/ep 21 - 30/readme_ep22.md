@@ -41,8 +41,8 @@ useSeoMeta({
 
 When we visit `http://localhost:3000/demo/composables/use-seo-meta` we should see following result
 
-![Result](./images/ep21/result1.png)
+![Result](../images/ep21/result1.png)
 
 In inspect element we should see following result
 
-![Result2](./images/ep21/result2.png)
+![Result2](../images/ep21/result2.png)

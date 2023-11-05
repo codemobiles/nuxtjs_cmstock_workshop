@@ -91,4 +91,4 @@ const author = reactive<TAuthor>({
 
 This is the result of display with component in `component.vue`
 
-![Result](./images/ep13/result1.png)
+![Result](../images/ep13/result1.png)

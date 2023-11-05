@@ -49,4 +49,4 @@ watch(count, (newCount) => {
 
 When we visit `http://localhost:3000/demo/composables/use-async-data` we should see following result
 
-![Result](./images/ep25/result1.png)
+![Result](../images/ep25/result1.png)

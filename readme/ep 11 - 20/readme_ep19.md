@@ -81,8 +81,8 @@ export default fromNodeMiddleware((req, res, next) => {
 
 -   Browser
 
-![Result](./images/ep19/result1.png)
+![Result](../images/ep19/result1.png)
 
 -   Terminal
 
-![Result](./images/ep19/result2.png)
+![Result](../images/ep19/result2.png)

@@ -56,4 +56,4 @@ https://nuxt.com/docs/guide/directory-structure/components
 
 This is the result of display with component in `component.vue`
 
-![Result](./images/ep10/result1.png)
+![Result](../images/ep10/result1.png)

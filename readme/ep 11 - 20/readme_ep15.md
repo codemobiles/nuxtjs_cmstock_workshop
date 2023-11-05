@@ -81,4 +81,4 @@ const goTo = (id: string) => {
 
 This is the result of `~/pages/demo/product/[id].vue`
 
-![Result](./images/ep15/result1.png)
+![Result](../images/ep15/result1.png)

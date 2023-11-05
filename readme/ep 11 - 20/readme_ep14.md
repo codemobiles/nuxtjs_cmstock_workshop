@@ -93,8 +93,8 @@ const goTo = (id: string) => {
 
 This is the result of display when you use `default` layout
 
-![Result](./images/ep14/result1.png)
+![Result](../images/ep14/result1.png)
 
 This is the result of display when you use `product` layout
 
-![Result](./images/ep14/result2.png)
+![Result](../images/ep14/result2.png)

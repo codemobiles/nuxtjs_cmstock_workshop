@@ -37,4 +37,4 @@ const route = useRoute();
 
 ## Result
 
-![Result](./images/ep8/result1.png)
+![Result](../images/ep8/result1.png)

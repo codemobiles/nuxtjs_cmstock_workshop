@@ -61,4 +61,4 @@ useHead({
 
 When we visit `http://localhost:3000/demo/composables/use-head` we should see following result
 
-![Result](./images/ep21/result1.png)
+![Result](../images/ep21/result1.png)

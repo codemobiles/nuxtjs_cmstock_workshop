@@ -37,8 +37,8 @@ const counterCookie = useCookie<number>("counter", {});
 
 When we visit `http://localhost:3000/demo/composables/use-cookie` we should see following result
 
-![Result](./images/ep26/result1.png)
+![Result](../images/ep26/result1.png)
 
 In `Application` tab we should see following result
 
-![Result](./images/ep26/result2.png)
+![Result](../images/ep26/result2.png)

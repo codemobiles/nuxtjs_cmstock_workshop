@@ -49,4 +49,4 @@ const ping = usePingpong();
 
 This is the result of this episode
 
-![Result](./images/ep15/result1.png)
+![Result](../images/ep15/result1.png)
