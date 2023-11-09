@@ -1,9 +1,15 @@
 <template>
     <div>
-        <h1>This is default Layout</h1>
-        <NuxtLoadingIndicator color="red" :height="400" />
-
-        <slot></slot>
+        <a-config-provider
+            :theme="{
+                token: {
+                    colorPrimary: '#00b96b',
+                    colorPrimary2: '#00a',
+                },
+            }"
+        >
+            <slot></slot>
+        </a-config-provider>
     </div>
 </template>
 
