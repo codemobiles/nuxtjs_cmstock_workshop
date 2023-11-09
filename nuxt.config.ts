@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
     css: ["~/assets/css/mycss.css"],
-    modules: ["dayjs-nuxt", "@nuxt/image", "@nuxtjs/tailwindcss"],
+    modules: [
+        "dayjs-nuxt",
+        "@nuxt/image",
+        "@nuxtjs/tailwindcss",
+        "@ant-design-vue/nuxt",
+    ],
+    antd: {},
     runtimeConfig: {
         secretEnv: process.env.SECRET_ENV,
         public: {
