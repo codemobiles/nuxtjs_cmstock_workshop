@@ -1,3 +1,19 @@
+# Nuxt 3 CMS Stock Course EP.36 - Antdv Button
+
+## Outcome
+
+-   [x] Introduction to Antdv Button
+-   [x] Setup Antdv Button
+
+## Documentation for this episode
+
+https://antdv.com/components/icon
+
+## Setup
+
+1. Update file in `~pages/demo/modules/antdv/antdv-button.vue` and change code to below
+
+```vue
 <template>
     <div>
         Theme
@@ -90,3 +106,12 @@ const handleMenuClick: MenuProps["onClick"] = (e) => {
 </script>
 
 <style scoped></style>
+```
+
+3. Go visit `http://localhost:3000/demo/modules/antdv/antdv-button` and see the result
+
+## Result
+
+When we visit `http://localhost:3000/demo/modules/antdv/antdv-button` we should see following result
+
+![Result](../images/ep35/result1.png)
