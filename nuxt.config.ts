@@ -7,7 +7,11 @@ export default defineNuxtConfig({
         "@nuxt/image",
         "@nuxtjs/tailwindcss",
         "@ant-design-vue/nuxt",
+        "@pinia/nuxt",
     ],
+    pinia: {
+        storesDirs: ["./stores/**"],
+    },
     antd: {},
     runtimeConfig: {
         secretEnv: process.env.SECRET_ENV,

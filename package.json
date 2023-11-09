@@ -20,7 +20,9 @@
         "vue-router": "^4.2.5"
     },
     "dependencies": {
+        "@pinia/nuxt": "^0.5.1",
         "chart.js": "^4.4.0",
+        "pinia": "^2.1.7",
         "vue-chart-3": "^3.1.8"
     }
 }
