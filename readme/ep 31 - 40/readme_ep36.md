@@ -7,7 +7,7 @@
 
 ## Documentation for this episode
 
-https://antdv.com/components/icon
+https://antdv.com/components/button
 
 ## Setup
 
