@@ -44,7 +44,7 @@ import { SearchOutlined } from "@ant-design/icons-vue";
 <style scoped></style>
 ```
 
-3. Go visit `http://localhost:3000/demo/modules/antdv/antdv-icon` and see the result
+2. Go visit `http://localhost:3000/demo/modules/antdv/antdv-icon` and see the result
 
 ## Result
 
