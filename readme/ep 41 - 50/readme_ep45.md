@@ -30,7 +30,7 @@ export const useCounterStore = defineStore("counter", {
 });
 ```
 
-2. Create file in `~pages/demo/modules/pinia/use-counter.vue` and change code to below
+2. Update file in `~pages/demo/modules/pinia/use-counter.vue` and change code to below
 
 ```vue
 <template>
