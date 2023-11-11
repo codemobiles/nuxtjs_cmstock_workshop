@@ -108,7 +108,7 @@ const handleMenuClick: MenuProps["onClick"] = (e) => {
 <style scoped></style>
 ```
 
-3. Go visit `http://localhost:3000/demo/modules/antdv/antdv-button` and see the result
+2. Go visit `http://localhost:3000/demo/modules/antdv/antdv-button` and see the result
 
 ## Result
 
