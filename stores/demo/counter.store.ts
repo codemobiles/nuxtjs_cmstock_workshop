@@ -11,4 +11,18 @@ export const useCounterStore = defineStore("counter", {
             return `This is counter state = ${this.count}`;
         },
     },
+    actions: {
+        increment() {
+            this.count++;
+        },
+        decrement() {
+            this.count--;
+        },
+        displayCounterTextFunc(): String {
+            return `This is counter state (Function) = ${this.count}`;
+        },
+        setCount(count: number) {
+            this.count = count;
+        },
+    },
 });
