@@ -136,7 +136,7 @@ https://antdv.com/components/grid
 </style>
 ```
 
-3. Go visit `http://localhost:3000/demo/modules/antdv/antdv-grid` and see the result
+2. Go visit `http://localhost:3000/demo/modules/antdv/antdv-grid` and see the result
 
 ## Result
 
