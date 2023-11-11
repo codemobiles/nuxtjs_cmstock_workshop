@@ -57,7 +57,7 @@ https://antdv.com/components/divider
 </template>
 ```
 
-3. Go visit `http://localhost:3000/demo/modules/antdv/antdv-divider` and see the result
+2. Go visit `http://localhost:3000/demo/modules/antdv/antdv-divider` and see the result
 
 ## Result
 
