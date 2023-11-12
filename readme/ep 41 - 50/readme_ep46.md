@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.45 - Pinia Actions
+# Nuxt 3 CMS Stock Course EP.46 - Pinia Actions
 
 ## Outcome
 
