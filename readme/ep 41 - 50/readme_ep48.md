@@ -46,12 +46,16 @@ export default defineEventHandler((event) => {
 });
 ```
 
-**_ GET `/api/v2/products/name` _**
+**_ GET `/api/v2/products/name/:keyword` _**
 
 ```ts
+// ~server/api/v2/products/name/[keyword].ts
 export default defineEventHandler((event) => {
+    const keyword = getRouterParam(event, "keyword") || "";
+    const keyWordDecoded = decodeURIComponent(keyword);
     return {
-        hello: "search products",
+        message: "Search product",
+        keyword: keyWordDecoded,
     };
 });
 ```
@@ -70,7 +74,7 @@ export default defineEventHandler((event) => {
 **_ PUT `/api/v2/products/:id` _**
 
 ```ts
-// ~server/api/v2/products/_id.put.ts
+// ~server/api/v2/products/[id].put.ts
 export default defineEventHandler((event) => {
     return {
         hello: "put products",
@@ -81,7 +85,7 @@ export default defineEventHandler((event) => {
 **_ DELETE `/api/v2/products/:id` _**
 
 ```ts
-// ~server/api/v2/products/_id.delete.ts
+// ~server/api/v2/products/[id].delete.ts
 export default defineEventHandler((event) => {
     return {
         hello: "delete products",
