@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.48 - Workshop - Backend - Params
+# Nuxt 3 CMS Stock Course EP.49 - Workshop - Backend - Params
 
 ## Outcome
 
