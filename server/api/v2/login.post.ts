@@ -1,5 +1,6 @@
-export default defineEventHandler((event) => {
-    return {
-        hello: "from post login",
-    };
+import { LoginDto } from "~/types/dtos/login.dto";
+
+export default defineEventHandler(async (event) => {
+    const body = await readBody<LoginDto>(event);
+    return body;
 });
