@@ -1,3 +1,4 @@
+import { kResultNok, kResultOk } from "~/server/constants";
 import product from "~/server/models/product.model";
 import { CreateProductDto } from "~/types/dtos/create-product.dto";
 
@@ -9,5 +10,7 @@ export default defineEventHandler(async (event) => {
             id,
         },
     });
-    return result;
+    return {
+        result: result[0] ? kResultOk : kResultNok,
+    };
 });

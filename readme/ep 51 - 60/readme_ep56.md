@@ -1,3 +1,32 @@
+# Nuxt 3 CMS Stock Course EP.56 - Constants
+
+## Outcome
+
+-   [x] Add `kResultOk` and `kResultError` in `~server/constants.ts`
+-   [x] Update `response` and add `result` to response
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `constants.ts` in `~server` folder
+
+```ts
+// ~server/constants.ts
+
+export const kResultOk = "ok";
+export const kResultNok = "nok";
+```
+
+2. Implement `kResultOk` and `kResultNok` in `every` routes (that nessessary)
+
+Example:
+
+```ts
+// ~server/api/v2/login.post.ts
+
 import { LoginDto } from "~/types/dtos/login.dto";
 import bcrypt from "bcryptjs";
 import user from "~/server/models/user.model";
@@ -40,3 +69,6 @@ export default defineEventHandler(async (event) => {
         },
     };
 });
+```
+
+3. You can update that by yourself
