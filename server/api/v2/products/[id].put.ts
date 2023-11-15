@@ -1,7 +1,13 @@
-export default defineEventHandler((event) => {
+import product from "~/server/models/product.model";
+import { CreateProductDto } from "~/types/dtos/create-product.dto";
+
+export default defineEventHandler(async (event) => {
     const id = getRouterParam(event, "id");
-    return {
-        message: "put products",
-        id: id,
-    };
+    const body = await readBody<CreateProductDto>(event);
+    const result = await product.update(body, {
+        where: {
+            id,
+        },
+    });
+    return result;
 });
