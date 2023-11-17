@@ -20,13 +20,11 @@ export const uploadImage = async (file: any, doc: any) => {
 
         fs.writeFileSync(newpath, file.data);
 
-        return true;
+        let result = product.update(
+            { image: doc.image },
+            { where: { id: doc.id } }
+        );
 
-        // Update database
-        // let result = product.update(
-        //     { image: doc.image },
-        //     { where: { id: doc.id } }
-        // );
-        // return result;
+        return result;
     }
 };
