@@ -1,3 +1,42 @@
+# Nuxt 3 CMS Stock Course EP.61 - Workshop - Frontend - Login Page
+
+## Outcome
+
+-   [x] Create `login.vue` page using `Antdv`
+-   [x] Implement `TailwindCSS` to `login.vue` page
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+(Optional) Download banner images [here](../../assets/images/banner_display.jpg)
+
+1. Create `~/layouts/authen.vue` for login page
+
+```vue
+<!-- ~/layouts/authen.vue -->
+
+<template>
+    <a-layout class="tw-min-h-screen">
+        <a-layout-content
+            class="tw-p-10 tw-flex tw-items-center tw-justify-center"
+        >
+            <a-row align="center" justify="center" class="tw-h-full tw-w-full">
+                <slot />
+            </a-row>
+        </a-layout-content>
+    </a-layout>
+</template>
+<script lang="ts" setup></script>
+```
+
+2. Create `~/pages/login.vue` for login page
+
+```vue
+<!-- ~/pages/login.vue -->
+
 <template>
     <a-card hoverable type="inner" class="tw-rounded-lg tw-w-[500px]">
         <template #cover>
@@ -89,10 +128,6 @@ import { Form } from "ant-design-vue";
 definePageMeta({
     layout: "authen",
 });
-
-const labelCol = { span: 0 };
-const wrapperCol = { span: 24 };
-
 const useForm = Form.useForm;
 // const authStore = useAuth();
 const modelRef = reactive({
@@ -133,3 +168,6 @@ onMounted(() => {
 </script>
 
 <style scoped></style>
+```
+
+3. Go visit `http://localhost:3000/login` to see the result
