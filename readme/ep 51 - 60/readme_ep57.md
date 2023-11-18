@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.57 - File Upload
+# Nuxt 3 CMS Stock Course EP.57 - Workshop - Backend - File Upload
 
 ## Outcome
 

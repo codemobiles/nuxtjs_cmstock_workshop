@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.56 - Constants
+# Nuxt 3 CMS Stock Course EP.56 - Workshop - Backend - Constants
 
 ## Outcome
 

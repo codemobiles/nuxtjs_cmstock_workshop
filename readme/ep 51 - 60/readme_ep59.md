@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.59 - Test connection backend by using Nuxt 3 (Frontend)
+# Nuxt 3 CMS Stock Course EP.59 - Workshop - Backend - Test connection backend by using Nuxt 3 (Frontend)
 
 ## Outcome
 

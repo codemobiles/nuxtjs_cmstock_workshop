@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.58 - File Upload with Sequlize
+# Nuxt 3 CMS Stock Course EP.58 - Workshop - Backend - File Upload with Sequlize
 
 ## Outcome
 
