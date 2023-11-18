@@ -13,7 +13,7 @@
 
 **_ Important _**
 
-Download `database.sqlite` from [here]() and put it in `~server`
+Download `database.sqlite` from [here](https://github.com/codemobiles/nuxtjs_cmstock_workshop/blob/main/server/database.sqlite) and put it in `~server`
 
 1. Add `mockData` in `~server/api/v2/login.post.ts`
 
