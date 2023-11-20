@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.69 - Workshop - Frontend - Use API Composable
+# Nuxt 3 CMS Stock Course EP.70 - Workshop - Frontend - Use API Composable (Login)
 
 ## Outcome
 
