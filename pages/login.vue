@@ -90,6 +90,8 @@ definePageMeta({
     layout: "authen",
 });
 
+const authStore = useAuthStore();
+
 const labelCol = { span: 0 };
 const wrapperCol = { span: 24 };
 
