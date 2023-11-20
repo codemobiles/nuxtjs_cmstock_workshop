@@ -1,3 +1,21 @@
+# Nuxt 3 CMS Stock Course EP.69 - Workshop - Frontend - Use API Composable
+
+## Outcome
+
+-   [x] Use API Composable
+-   [x] Update check `url` with `slash` in `useFetcher`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `useFetcher` in `~/composables/useFetcher.ts`
+
+```ts
+// ~/composables/useFetcher.ts
+
 import {
     apiUrl,
     NOT_CONNECT_NETWORK,
@@ -62,3 +80,39 @@ export const useFetcher = () => {
         // isLoading
     };
 };
+```
+
+2. Create `useApi.ts` in `~/composables/useApi.ts`
+
+```ts
+// ~/composables/useApi.ts
+
+import { login, register } from "@/services/api/auth-api.service";
+export const useApi = () => {
+    return {
+        login,
+        register,
+    };
+};
+```
+
+3. Try to use `useApi` in `~/pages/login.vue`
+
+```vue
+<script setup lang="ts">
+const onSubmit = () => {
+    validate()
+        .then(async () => {
+            //# Add on this line
+            api.login({
+                username: modelRef.username,
+                password: modelRef.password,
+            });
+            // await authStore.login(toRaw(modelRef));
+        })
+        .catch((err) => {
+            console.log("error", err);
+        });
+};
+</script>
+```
