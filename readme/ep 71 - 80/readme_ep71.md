@@ -1,3 +1,21 @@
+# Nuxt 3 CMS Stock Course EP.71 - Workshop - Frontend - Use API Composable (Register)
+
+## Outcome
+
+-   [x] Use API Composable
+-   [x] Update api register in `useApi`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `register.vue` in `~/pages/register.vue`
+
+```vue
+// ~/pages/register.vue
+
 <template>
     <a-card hoverable type="inner" class="tw-rounded-lg tw-w-[500px]">
         <template #cover>
@@ -126,3 +144,4 @@ const onSubmit = () => {
 </script>
 
 <style scoped></style>
+```
