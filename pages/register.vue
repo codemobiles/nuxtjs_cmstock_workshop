@@ -82,13 +82,12 @@ definePageMeta({
     layout: "authen",
 });
 
-const api = useApi();
-
 const labelCol = { span: 0 };
 const wrapperCol = { span: 24 };
 
 const useForm = Form.useForm;
-// const authStore = useAuth();
+const authStore = useAuthStore();
+
 const modelRef = reactive({
     username: "",
     password: "",
@@ -113,11 +112,7 @@ const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef, {
 const onSubmit = () => {
     validate()
         .then(async () => {
-            api.register({
-                username: modelRef.username,
-                password: modelRef.password,
-            });
-            // await authStore.register(toRaw(modelRef));
+            await authStore.register(toRaw(modelRef));
         })
         .catch((err) => {
             console.log("error", err);

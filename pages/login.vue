@@ -123,11 +123,7 @@ const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef, {
 const onSubmit = () => {
     validate()
         .then(async () => {
-            api.login({
-                username: modelRef.username,
-                password: modelRef.password,
-            });
-            // await authStore.login(toRaw(modelRef));
+            await authStore.login(toRaw(modelRef));
         })
         .catch((err) => {
             console.log("error", err);

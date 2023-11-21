@@ -3,6 +3,7 @@ import { server, apiUrl } from "~/utils/constants";
 import { useFetcher } from "~/composables/useFetcher";
 import type { LoginDto } from "~/types/dtos/login.dto";
 import type { RegisterDto } from "~/types/dtos/register.dto";
+import type { LoginResponse } from "~/types/responsea/login.response";
 
 const { fetch } = useFetcher();
 
@@ -13,7 +14,7 @@ export const login = async (loginDto: LoginDto) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(loginDto),
-    })) as Promise<any>;
+    })) as Promise<LoginResponse>;
     return result;
 };
 
