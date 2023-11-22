@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.73 - Workshop - Frontend - Layout (Sidebar)
+# Nuxt 3 CMS Stock Course EP.74 - Workshop - Frontend - Layout (Sidebar)
 
 ## Outcome
 
