@@ -20,6 +20,7 @@
             <a-tag
                 color="#EE2E31"
                 class="tw-rounded-lg tw-px-4 tw-cursor-pointer"
+                @click="authStore.logout()"
             >
                 <a-row justify="center" class="!tw-items-center tw-pt-1">
                     <LogoutOutlined class="tw-text-lg" />
