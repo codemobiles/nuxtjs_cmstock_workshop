@@ -3,7 +3,7 @@
 ## Outcome
 
 -   [x] Use `auth` store
--   [x] Create `response` for `register` and `login``
+-   [x] Create `response` for `register` and `login`
 
 ## Documentation for this episode
 
