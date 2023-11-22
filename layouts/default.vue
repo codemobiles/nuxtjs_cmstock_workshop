@@ -2,7 +2,7 @@
     <a-layout class="tw-min-h-screen" hasSider>
         <LayoutsCoreSidebar :collapsed="collapsed"></LayoutsCoreSidebar>
         <a-layout class="tw-w-fsull tw-overflow-auto">
-            <!-- <LayoutsCoreHeader></LayoutsCoreHeader> -->
+            <LayoutsCoreHeader></LayoutsCoreHeader>
             <a-layout-content class="tw-p-5">
                 <slot />
             </a-layout-content>
