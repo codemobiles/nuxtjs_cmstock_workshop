@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.80 - Workshop - Frontend - Product Store
+# Nuxt 3 CMS Stock Course EP.81 - Workshop - Frontend - Product Store
 
 ## Outcome
 
