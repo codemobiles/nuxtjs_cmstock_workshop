@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Stock</p>
+        <p>{{ productStore.products }}</p>
     </div>
 </template>
 
@@ -8,6 +8,10 @@
 definePageMeta({
     layout: "default",
 });
+
+const productStore = useProductStore();
+
+productStore.loadProducts();
 </script>
 
 <style scoped></style>

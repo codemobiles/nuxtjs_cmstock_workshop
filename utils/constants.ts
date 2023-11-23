@@ -13,7 +13,7 @@ export const imageUrl = "/uploaded/images";
 export const server = {
     LOGIN_URL: `login`,
     REGISTER_URL: `register`,
-    PRODUCT_URL: `product`,
+    PRODUCT_URL: `products`,
     PRODUCTV2_URL: `productv2`,
     TRANSACTION_URL: `transaction`,
     REPORT_URL: `report`,
