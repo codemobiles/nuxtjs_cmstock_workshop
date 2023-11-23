@@ -29,5 +29,6 @@ export const useProductStore = defineStore("product", () => {
     return {
         products,
         loadProducts,
+        isLoading,
     };
 });
