@@ -1,3 +1,86 @@
+# Nuxt 3 CMS Stock Course EP.77 - Workshop - Auth middleware
+
+## Outcome
+
+-   [x] Use `auth.global` middleware
+-   [x] Implement `auth` middleware
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Add `auth.global.ts` inside `~/middleware/auth.global.ts`
+
+```ts
+// ~/middleware/auth.global.ts
+
+export default defineNuxtRouteMiddleware(async (to, from) => {
+    const authStore = useAuthStore();
+
+    // CHECK AUTH BY LAYOUT
+    authStore.restoreSession();
+
+    console.log("authStore.session.isLoggedIn", authStore.session.isLoggedIn);
+
+    if (to.meta.layout === "default") {
+        if (authStore.session.isLoggedIn) {
+            if (to.path === "/") return await navigateTo("/stock");
+            return;
+        }
+        return await navigateTo("/login");
+    }
+    if (authStore.session.isLoggedIn) {
+        return await navigateTo("/stock");
+    }
+    return;
+});
+```
+
+2. Add `index.vue` in `~/pages/index.vue`
+
+```vue
+<!-- ~/pages/index.vue -->
+
+<template>
+    <div></div>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+    layout: "authen",
+});
+</script>
+
+<style scoped></style>
+```
+
+3. Update `stock.vue` in `~/pages/stock.vue`
+
+```vue
+<!-- ~/pages/stock.vue -->
+
+<template>
+    <div>
+        <p>Stock</p>
+    </div>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+    layout: "default",
+});
+</script>
+
+<style scoped></style>
+```
+
+4. Update `auth.store.ts` in `~/stores/auth.store.ts`
+
+```ts
+//* ~/stores/auth.store.ts
+
 import type { LoginDto } from "~/types/dtos/login.dto";
 import type { RegisterDto } from "~/types/dtos/register.dto";
 import { FetchingStatus } from "~/types/enums/FetchingStatus";
@@ -88,3 +171,4 @@ export const useAuthStore = defineStore("auth", () => {
         session,
     };
 });
+```

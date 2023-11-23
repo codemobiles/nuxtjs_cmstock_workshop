@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <p>Stock</p>
-    </div>
+    <div></div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-    layout: "default",
+    layout: "authen",
 });
 </script>
 
