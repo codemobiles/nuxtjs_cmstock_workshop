@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-    layout: "authen",
+    layout: "default",
 });
 </script>
 

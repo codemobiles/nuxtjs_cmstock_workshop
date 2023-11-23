@@ -10,14 +10,12 @@
         "postinstall": "nuxt prepare"
     },
     "devDependencies": {
-        "@ant-design-vue/nuxt": "^1.1.2",
+        "@ant-design-vue/nuxt": "^1.2.0",
         "@nuxt/devtools": "latest",
         "@nuxt/image": "^1.0.0",
         "@nuxtjs/tailwindcss": "^6.9.4",
         "dayjs-nuxt": "^2.1.9",
-        "nuxt": "^3.8.0",
-        "vue": "^3.3.7",
-        "vue-router": "^4.2.5"
+        "nuxt": "^3.5.3"
     },
     "dependencies": {
         "@pinia/nuxt": "^0.5.1",

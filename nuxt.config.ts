@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     pinia: {
         storesDirs: ["./stores/**"],
     },
-    antd: {},
     runtimeConfig: {
         secretEnv: process.env.SECRET_ENV,
         public: {

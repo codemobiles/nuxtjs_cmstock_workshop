@@ -1,3 +1,18 @@
+# Nuxt 3 CMS Stock Course EP.78 - Workshop - Fix bug Ant design
+
+## Outcome
+
+-   [x] Fix UI delay on `server side rendering` by using `<ClientOnly>` component
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Add `<ClientOnly>` inside `app.vue`
+
+```vue
 <template>
     <ClientOnly>
         <NuxtLayout>
@@ -23,3 +38,22 @@ const msg = "My CMS Stock application";
     color: orange;
 }
 </style>
+```
+
+2. Change `layout: "authen"` to `layout: "default"` in `~/pages/index.vue`
+
+```vue
+<!-- ~/pages/index.vue -->
+
+<template>
+    <div></div>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+    layout: "default",
+});
+</script>
+
+<style scoped></style>
+```
