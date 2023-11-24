@@ -13,6 +13,11 @@
                                     <a-auto-complete
                                         size="large"
                                         class="tw-w-full tw-drop-shadow-sm hover:tw-drop-shadow-md tw-transition-all"
+                                        :options="
+                                            productStore.autoCompleteOptions
+                                        "
+                                        @search="productStore.debouncedSearch"
+                                        @select="productStore.onSelect"
                                         :default-active-first-option="false"
                                         :filter-option="false"
                                     >

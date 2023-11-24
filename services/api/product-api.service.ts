@@ -43,3 +43,8 @@ export const deleteProduct = async (id: string) => {
     });
     return result;
 };
+
+export const getProductByKeyword = async (keyword: string) => {
+    const result = await fetch(`${server.PRODUCT_URL}/name/${keyword}`);
+    return result;
+};

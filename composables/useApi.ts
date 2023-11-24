@@ -5,6 +5,7 @@ import {
     deleteProduct,
     getProductById,
     updateProduct,
+    getProductByKeyword,
 } from "@/services/api/product-api.service";
 export const useApi = () => {
     return {
@@ -15,5 +16,6 @@ export const useApi = () => {
         deleteProduct,
         getProductById,
         updateProduct,
+        getProductByKeyword,
     };
 };
