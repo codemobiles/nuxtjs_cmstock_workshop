@@ -3,7 +3,7 @@ import { server, apiUrl } from "~/utils/constants";
 import { useFetcher } from "~/composables/useFetcher";
 import type { LoginDto } from "~/types/dtos/login.dto";
 import type { RegisterDto } from "~/types/dtos/register.dto";
-import type { LoginResponse } from "~/types/responsea/login.response";
+import type { LoginResponse } from "~/types/responses/login.response";
 
 const { fetch } = useFetcher();
 

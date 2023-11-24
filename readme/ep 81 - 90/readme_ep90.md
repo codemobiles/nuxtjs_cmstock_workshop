@@ -1,3 +1,58 @@
+# Nuxt 3 CMS Stock Course EP.90 - Workshop - Frontend - Product Card
+
+## Outcome
+
+-   [x] Create `StockCard.vue` component use in `stock.vue` page
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+(Optional) Chane `auth-api.service.ts` in `~/services/auth-api.service.ts` to
+
+```ts
+import type { TUser } from "~/types/user.type";
+import { server, apiUrl } from "~/utils/constants";
+import { useFetcher } from "~/composables/useFetcher";
+import type { LoginDto } from "~/types/dtos/login.dto";
+import type { RegisterDto } from "~/types/dtos/register.dto";
+import type { LoginResponse } from "~/types/responses/login.response";
+
+const { fetch } = useFetcher();
+
+export const login = async (loginDto: LoginDto) => {
+    const result = (await fetch(`${server.LOGIN_URL}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginDto),
+    })) as Promise<LoginResponse>;
+    return result;
+};
+
+export const register = async (registerDto: RegisterDto) => {
+    const result = await fetch(server.REGISTER_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registerDto),
+    });
+    if (result.result == "ok") {
+        return true;
+    }
+    return false;
+};
+```
+
+1. Update `create.vue` page
+
+```vue
+<!-- ~/pages/stock/create.vue -->
+
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
@@ -209,3 +264,4 @@ const onSubmit = async () => {
 </script>
 
 <style scoped></style>
+```
