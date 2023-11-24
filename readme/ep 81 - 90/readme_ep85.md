@@ -1,3 +1,30 @@
+# Nuxt 3 CMS Stock Course EP.85 - Workshop - Frontend - Product Datatable Part 3 (Image)
+
+## Outcome
+
+-   [x] Implement `<a-image>` with `datatable` component (`image`)
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `useImage.ts` in `composables` folder
+
+```ts
+// ~/composables/useImage.ts
+
+export const getFullImagePath = (image: string) => {
+    return `${imageUrl}/${image}`;
+};
+```
+
+2. Update code in `ProductTable.vue`
+
+```vue
+<!-- ~/components/ProductTable.vue -->
+
 <template>
     <a-table
         :columns="columns"
@@ -126,3 +153,4 @@ const handleClickDelete = (id: number) => {
 </script>
 
 <style scoped></style>
+```
