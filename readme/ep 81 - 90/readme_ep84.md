@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.83 - Workshop - Frontend - Product Datatable Part 2 (Format Data)
+# Nuxt 3 CMS Stock Course EP.84 - Workshop - Frontend - Product Datatable Part 2 (Format Data)
 
 ## Outcome
 
