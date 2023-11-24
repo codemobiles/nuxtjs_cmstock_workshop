@@ -10,6 +10,8 @@
 
 ## Setup
 
+Download `uploaded.zip` from [here](../../uploaded.zip) and extract to `~/public` folder
+
 1. Create `useImage.ts` in `composables` folder
 
 ```ts
