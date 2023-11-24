@@ -1,3 +1,21 @@
+# Nuxt 3 CMS Stock Course EP.86 - Workshop - Frontend - Search input and Create button
+
+## Outcome
+
+-   [x] Implement `<a-autocomplete>` with `datatable` component (`search`)
+-   [x] Implement `<a-button>` with `datatable` component (`create`)
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `stock.vue` in `pages` folder
+
+```vue
+<!-- ~/pages/stock.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24" class="tw-my-1 tw-mt-2"> </a-col>
@@ -79,3 +97,4 @@ const handleClickEdit = (id: number) => {
 </script>
 
 <style scoped></style>
+```
