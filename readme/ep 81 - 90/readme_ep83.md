@@ -1,3 +1,44 @@
+# Nuxt 3 CMS Stock Course EP.83 - Workshop - Frontend - Product Datatable Part 2 (Format Data)
+
+## Outcome
+
+-   [x] Implement `Intl` with `datatable` component (`price`, `stock`)
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `useFormats.ts` in `composables` folder
+
+```ts
+// ~/composables/useFormats.ts
+
+export const useFormat = () => {
+    const toQuantity = (value = 0) => {
+        return value.toLocaleString("th-TH", { minimumFractionDigits: 2 });
+    };
+
+    const toCurrency = (value = 0) => {
+        return Intl.NumberFormat("th-TH", {
+            style: "currency",
+            currency: "THB",
+        }).format(value);
+    };
+
+    return {
+        toQuantity,
+        toCurrency,
+    };
+};
+```
+
+2. Uncomment some code in `ProductTable.vue`
+
+```vue
+<!-- ~/components/ProductTable.vue -->
+
 <template>
     <a-table
         :columns="columns"
@@ -126,3 +167,54 @@ const handleClickDelete = (id: number) => {
 </script>
 
 <style scoped></style>
+```
+
+3. Update `stock.vue`
+
+```vue
+<!-- ~/pages/stock.vue -->
+
+<template>
+    <a-row :gutter="[0, 10]">
+        <a-col :span="24" class="tw-my-1 tw-mt-2"> </a-col>
+        <a-col :span="24" class="tw-my-1">
+            <a-col :span="24" class="tw-my-1">
+                <a-card
+                    class="tw-w-full tw-min-h-[75vh] tw-rounded-lg tw-drop-shadow-md"
+                >
+                    <a-row align="middle" justify="center" :gutter="[0, 10]">
+                        <a-col :span="24"> </a-col>
+                        <a-col :span="24">
+                            <ProductTable
+                                :products="productStore.products"
+                                @handleClickDelete="handleClickDelete"
+                                @handleClickEdit="handleClickEdit"
+                            />
+                        </a-col>
+                    </a-row>
+                </a-card>
+            </a-col>
+        </a-col>
+    </a-row>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+    layout: "default",
+});
+
+const productStore = useProductStore();
+
+productStore.loadProducts();
+
+const handleClickDelete = (id: number) => {
+    // productStore.deleteProduct(id);
+};
+
+const handleClickEdit = (id: number) => {
+    // productStore.editProduct(id);
+};
+</script>
+
+<style scoped></style>
+```
