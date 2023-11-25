@@ -15,7 +15,6 @@
 ```vue
 <!-- ~/pages/stock/edit/[id].vue -->
 
-<
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
