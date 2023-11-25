@@ -1,3 +1,192 @@
+# Nuxt 3 CMS Stock Course EP.91 - Workshop - Frontend - Image Upload
+
+## Outcome
+
+-   [x] Implement image upload
+-   [x] Implement `useFormat` composable for `beforeUpload` and `convertToFile`
+-   [x] Implement `handleChange` for `Upload` component
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `useFormat.ts` in `~/composables/useFormat.ts`
+
+```ts
+// ~/composables/useFormat.ts
+
+import type { UploadChangeParam } from "ant-design-vue";
+
+export const useFormat = () => {
+    const toQuantity = (value = 0) => {
+        return value.toLocaleString("th-TH", { minimumFractionDigits: 2 });
+    };
+
+    const toCurrency = (value = 0) => {
+        return Intl.NumberFormat("th-TH", {
+            style: "currency",
+            currency: "THB",
+        }).format(value);
+    };
+
+    const beforeUpload = (file: File) => {
+        const isJpgOrPng =
+            file.type === "image/jpeg" || file.type === "image/png";
+        if (!isJpgOrPng) {
+            message.error("You can only upload JPG file!");
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+            message.error("Image must smaller than 2MB!");
+        }
+        return isJpgOrPng && isLt2M;
+    };
+
+    const convertToFile = (info: UploadChangeParam) => {
+        const file = info.file as any;
+        const fileConvert = new File([file.originFileObj] as any, file.name, {
+            type: file.type,
+            lastModified: file.lastModified,
+        });
+        return fileConvert;
+    };
+
+    return {
+        beforeUpload,
+        toQuantity,
+        toCurrency,
+        convertToFile,
+    };
+};
+```
+
+2. Update `product.store.ts` in `~/stores/product.store.ts`
+
+```ts
+// ~/stores/product.store.ts
+
+import { FetchingStatus } from "~/types/enums/FetchingStatus";
+import type { TProduct } from "~/types/product.type";
+import type { UploadChangeParam } from "ant-design-vue";
+
+export const useProductStore = defineStore("product", () => {
+    const products = ref<TProduct[]>([]);
+    const autoCompleteOptions = ref([]);
+    const fetchingStatus = ref<FetchingStatus>(FetchingStatus.init);
+    const api = useApi();
+    const preview = reactive({
+        visible: false,
+        title: "",
+    });
+
+    //@ts-ignore
+    const handlePreview = async (file: UploadProps["fileList"][number]) => {
+        preview.visible = true;
+        preview.title =
+            file.name || file.url.substring(file.url.lastIndexOf("/") + 1);
+    };
+
+    // getter
+    const setLoading = (status: FetchingStatus) => {
+        fetchingStatus.value = status;
+    };
+    const isLoading = () => {
+        return fetchingStatus.value === FetchingStatus.fetching;
+    };
+
+    const debouncedSearch = async (search: string) => {
+        //* Sleep 500ms
+        setLoading(FetchingStatus.fetching);
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        try {
+            if (search) {
+                const result = await api.getProductByKeyword(search);
+                products.value = result.data;
+                autoCompleteOptions.value = result.data.map((product: any) => ({
+                    value: product.name,
+                }));
+            } else {
+                await loadProducts();
+            }
+        } catch (error) {
+        } finally {
+            setTimeout(() => {
+                setLoading(FetchingStatus.success);
+            }, 500);
+        }
+    };
+
+    const onSelect = async (value: any) => {
+        setLoading(FetchingStatus.fetching);
+        try {
+            if (value) {
+                const result = await api.getProductByKeyword(value);
+                products.value = result.data;
+            } else {
+                await loadProducts();
+            }
+        } finally {
+            setTimeout(() => {
+                setLoading(FetchingStatus.success);
+            }, 500);
+        }
+    };
+
+    const loadProducts = async () => {
+        setLoading(FetchingStatus.fetching);
+        try {
+            const res = await api.getProducts();
+            products.value = res;
+        } catch (error) {
+            products.value = [];
+        } finally {
+            setLoading(FetchingStatus.success);
+        }
+    };
+
+    const handleChange = (info: UploadChangeParam) => {
+        if (info.file.status === "uploading") {
+            setLoading(FetchingStatus.fetching);
+            return "";
+        }
+        if (info.file.status === "done") {
+            console.log("handleUpload");
+            const target = info.file.originFileObj as any;
+            const fileURL = URL.createObjectURL(target);
+            const previewImageUrl = fileURL;
+            setLoading(FetchingStatus.success);
+            return previewImageUrl;
+        }
+        if (info.file.status === "removed") {
+            setLoading(FetchingStatus.success);
+            message.error("file was removed");
+            return { status: info.file.status };
+        }
+        if (info.file.status === "error") {
+            setLoading(FetchingStatus.failed);
+            message.error("upload error");
+            return { status: info.file.status };
+        }
+    };
+
+    return {
+        handleChange,
+        autoCompleteOptions,
+        debouncedSearch,
+        products,
+        loadProducts,
+        isLoading,
+        onSelect,
+        handlePreview,
+    };
+});
+```
+
+3. Update `create.vue` in `~/pages/stock/create.vue`
+
+```vue
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
@@ -237,3 +426,4 @@ const handleUploadChange = (info: UploadChangeParam) => {
 </script>
 
 <style scoped></style>
+```
