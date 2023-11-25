@@ -183,6 +183,7 @@
 <script setup lang="ts">
 import { Form } from "ant-design-vue";
 import type { UploadChangeParam } from "ant-design-vue/lib/upload/interface";
+import type { TProduct } from "~/types/product.type";
 
 definePageMeta({
     layout: "default",
@@ -206,6 +207,8 @@ const modelRef = reactive({
     image: null as any,
 });
 
+const api = useApi();
+
 const { validate, validateInfos } = useForm(modelRef, formRule.rules);
 
 const handleUploadChange = (info: UploadChangeParam) => {
@@ -228,6 +231,16 @@ const onSubmit = async () => {
         console.log(modelRef);
     });
 };
+
+onMounted(async () => {
+    const id = route.params.id as string;
+    const result = (await api.getProductById(id)) as TProduct;
+    modelRef.name = result.name;
+    modelRef.price = result.price.toString();
+    modelRef.stock = result.stock.toString();
+    modelRef.image = result.image;
+    previewImageUrl.value = getFullImagePath(result.image) as any;
+});
 </script>
 
 <style scoped></style>
