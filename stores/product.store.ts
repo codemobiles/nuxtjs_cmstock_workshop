@@ -102,6 +102,11 @@ export const useProductStore = defineStore("product", () => {
         }
     };
 
+    const handleCancel = () => {
+        preview.visible = false;
+        preview.title = "";
+    };
+
     return {
         handleChange,
         autoCompleteOptions,
@@ -111,5 +116,7 @@ export const useProductStore = defineStore("product", () => {
         isLoading,
         onSelect,
         handlePreview,
+        preview,
+        handleCancel,
     };
 });
