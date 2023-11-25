@@ -1,8 +1,8 @@
-# Nuxt 3 CMS Stock Course EP.95 - Workshop - Frontend - Edit Product (Part 1)
+# Nuxt 3 CMS Stock Course EP.95 - Workshop - Frontend - Edit Product (Part 2) Implement logic
 
 ## Outcome
 
--   [x] Create `edit.vue` in `~/pages/stock/edit.vue`
+-   [x] Create `useFormRules.ts` in `~/composables/useFormRules.ts`
 
 ## Documentation for this episode
 
@@ -10,156 +10,283 @@
 
 ## Setup
 
-1. Create `[id].vue` in `~/pages/stock/edit/[id].vue`
+1. Create `useFormRules.ts` in `~/composables/useFormRules.ts`
+
+```ts
+// ~/composables/useFormRules.ts
+
+export const useFormRule = () => {
+    return {
+        rules: {
+            name: [
+                {
+                    required: true,
+                    message: "Please input name",
+                },
+                {
+                    min: 6,
+                    // max: 12,
+                    message: "Length should be at least 6",
+                    trigger: "blur",
+                },
+            ],
+            price: [
+                {
+                    required: true,
+                    message: "Please input price",
+                },
+            ],
+            stock: [
+                {
+                    required: true,
+                    message: "Please input amount of stock",
+                },
+            ],
+            image: [
+                {
+                    required: true,
+                    message: "Please select image",
+                },
+            ],
+        },
+    };
+};
+```
+
+2. Update `[id].vue` in `~/pages/stock/edit/[id].vue` by implement logic
 
 ```vue
 <!-- ~/pages/stock/edit/[id].vue -->
 
 <template>
-    <div>
-        {{ route.params.id }}
-    </div>
-</template>
-
-<script setup lang="ts">
-definePageMeta({
-    layout: "default",
-});
-const route = useRoute();
-</script>
-
-<style scoped></style>
-```
-
-2. Add `router` when press edit button in `~/pages/stock/index.vue`
-
-```vue
-<!-- ~/pages/stock/index.vue -->
-
-<template>
-    <a-row :gutter="[0, 10]">
-        <a-col :span="24" class="tw-my-1 tw-mt-2">
-            <a-row :gutter="[0, 10]" align="middle" justify="center">
-                <a-col
-                    :span="6"
-                    v-for="(item, i) in stockCardList"
-                    :key="i"
-                    class="tw-pr-2"
+    <a-row class="tw-mb-4">
+        <a-col :span="24">
+            <a-card
+                class="tw-drop-shadow-md hover:tw-drop-shadow-lg tw-transition-all tw-rounded-lg"
+            >
+                <a-form
+                    :label-col="{ span: 24 }"
+                    :wrapper-col="{ span: 24 }"
+                    class="tw-w-full"
                 >
-                    <StockCard
-                        :title="item.title"
-                        :amount="item.amount"
-                        :color="item.color"
-                        :icon="item.icon"
-                    ></StockCard>
-                </a-col>
-            </a-row>
-        </a-col>
-        <a-col :span="24" class="tw-my-1">
-            <a-col :span="24" class="tw-my-1">
-                <a-card
-                    class="tw-w-full tw-min-h-[75vh] tw-rounded-lg tw-drop-shadow-md"
-                >
-                    <a-row align="middle" justify="center" :gutter="[0, 10]">
-                        <a-col :span="24">
-                            <a-row justify="space-between" :gutter="[0, 10]">
-                                <a-col :span="22">
-                                    <a-auto-complete
-                                        size="large"
-                                        class="tw-w-full tw-drop-shadow-sm hover:tw-drop-shadow-md tw-transition-all"
-                                        :options="
-                                            productStore.autoCompleteOptions
-                                        "
-                                        @search="productStore.debouncedSearch"
-                                        @select="productStore.onSelect"
-                                        :default-active-first-option="false"
-                                        :filter-option="false"
+                    <a-row align="center" justify="center">
+                        <a-col :span="16">
+                            <a-row
+                                align="center"
+                                justify="center"
+                                class="tw-w-full"
+                                :gutter="[10, 0]"
+                            >
+                                <a-col
+                                    :span="24"
+                                    class="tw-flex tw-justify-center"
+                                >
+                                    <a-tag
+                                        color="warning"
+                                        class="tw-font-medium tw-text-xl tw-rounded-lg tw-px-4 tw-mb-4"
                                     >
-                                        <template #placeholder>
-                                            <SearchOutlined /> Input search
-                                            text</template
-                                        >
-                                    </a-auto-complete>
+                                        EDIT PRODUCT
+                                    </a-tag>
                                 </a-col>
-                                <a-col :span="2">
-                                    <a-button
-                                        @click="$router.push('/stock/create')"
-                                        class="tw-w-full tw-drop-shadow-sm hover:tw-drop-shadow-md tw-transition-all tw-flex tw-items-center tw-justify-center tw-border-white"
-                                        shape="round"
-                                        size="large"
-                                        type="primary"
+                                <a-col
+                                    :span="24"
+                                    class="tw-flex tw-justify-center tw-w-full"
+                                >
+                                    <a-form-item
+                                        label="Name"
+                                        class="tw-font-medium tw-w-full"
+                                        v-bind="validateInfos.name"
                                     >
-                                        <span v-if="breakpointState.sm">
-                                            NEW
-                                        </span>
-                                        <template #icon>
-                                            <PlusCircleFilled
-                                        /></template>
-                                    </a-button>
+                                        <a-input
+                                            v-model:value="modelRef.name"
+                                            @blur="validate('name')"
+                                        />
+                                    </a-form-item>
+                                </a-col>
+                                <a-col
+                                    :span="12"
+                                    class="tw-flex tw-justify-center"
+                                >
+                                    <a-form-item
+                                        label="Price"
+                                        class="tw-font-medium tw-w-full"
+                                        v-bind="validateInfos.price"
+                                    >
+                                        <a-input
+                                            type="number"
+                                            v-model:value="modelRef.price"
+                                            @blur="validate('price')"
+                                        />
+                                    </a-form-item>
+                                </a-col>
+                                <a-col
+                                    :span="12"
+                                    class="tw-flex tw-justify-center"
+                                >
+                                    <a-form-item
+                                        label="Stock"
+                                        class="tw-font-medium tw-w-full"
+                                        v-bind="validateInfos.stock"
+                                    >
+                                        <a-input
+                                            type="number"
+                                            v-model:value="modelRef.stock"
+                                            @blur="validate('stock')"
+                                        />
+                                    </a-form-item>
+                                </a-col>
+                                <a-col
+                                    :span="24"
+                                    class="tw-flex tw-justify-center"
+                                >
+                                    <a-form-item
+                                        label="Image file"
+                                        class="tw-font-medium tw-w-full"
+                                        v-bind="validateInfos.image"
+                                    >
+                                        <a-upload
+                                            v-model="modelRef.image"
+                                            :max-count="1"
+                                            name="image"
+                                            list-type="picture-card"
+                                            class="avatar-uploader"
+                                            :show-upload-list="true"
+                                            :before-upload="
+                                                formats.beforeUpload
+                                            "
+                                            @change="handleUploadChange"
+                                            @preview="
+                                                productStore.handlePreview
+                                            "
+                                        >
+                                            <img
+                                                class="tw-p-1 tw-w-full tw-h-full tw-object-cover tw-rounded-lg"
+                                                alt="Upload"
+                                                v-if="
+                                                    previewImageUrl &&
+                                                    modelRef.image
+                                                "
+                                                :src="previewImageUrl"
+                                            />
+                                            <div v-else>
+                                                <loading-outlined
+                                                    v-if="
+                                                        productStore.isLoading()
+                                                    "
+                                                ></loading-outlined>
+                                                <plus-outlined
+                                                    v-else
+                                                ></plus-outlined>
+                                                <div class="ant-upload-text">
+                                                    Upload
+                                                </div>
+                                            </div>
+                                            <a-modal
+                                                :visible="
+                                                    productStore.preview.visible
+                                                "
+                                                :title="
+                                                    productStore.preview.title
+                                                "
+                                                :footer="null"
+                                                @cancel="
+                                                    productStore.handleCancel
+                                                "
+                                            >
+                                                <img
+                                                    alt="example"
+                                                    style="width: 100%"
+                                                    :src="previewImageUrl!"
+                                                />
+                                            </a-modal>
+                                        </a-upload>
+                                        <a-modal :footer="null">
+                                            <img
+                                                alt="example"
+                                                style="width: 100%"
+                                            />
+                                        </a-modal>
+                                    </a-form-item>
+                                </a-col>
+                                <a-col
+                                    :span="24"
+                                    class="tw-flex tw-justify-center"
+                                >
+                                    <a-form-item class="tw-w-full">
+                                        <a-row justify="end">
+                                            <a-button
+                                                @click="$router.push('/stock')"
+                                                >Cancel</a-button
+                                            >
+
+                                            <a-button
+                                                :loading="
+                                                    productStore.isLoading()
+                                                "
+                                                type="primary"
+                                                class="tw-ml-2"
+                                                @click.prevent="onSubmit"
+                                                >Confirm</a-button
+                                            >
+                                        </a-row>
+                                    </a-form-item>
                                 </a-col>
                             </a-row>
                         </a-col>
-                        <a-col :span="24">
-                            <ProductTable
-                                :products="productStore.products"
-                                @handleClickDelete="handleClickDelete"
-                                @handleClickEdit="handleClickEdit"
-                            />
-                        </a-col>
                     </a-row>
-                </a-card>
-            </a-col>
+                </a-form>
+            </a-card>
         </a-col>
     </a-row>
 </template>
 
 <script setup lang="ts">
-import { Grid } from "ant-design-vue";
-import {
-    ShoppingCartOutlined,
-    SearchOutlined,
-    RollbackOutlined,
-    GiftOutlined,
-    PlusCircleFilled,
-} from "@ant-design/icons-vue";
+import { Form } from "ant-design-vue";
+import type { UploadChangeParam } from "ant-design-vue/lib/upload/interface";
 
 definePageMeta({
     layout: "default",
 });
-
-const router = useRouter();
-
-const stockCardList = ref([
-    {
-        title: "Total",
-        amount: 1800,
-        icon: ShoppingCartOutlined,
-        color: "#00B98D",
-    },
-    { title: "Sold out", amount: 20, icon: SearchOutlined, color: "#058C42" },
-    { title: "Return", amount: 4, icon: RollbackOutlined, color: "#04471C" },
-    {
-        title: "Discount",
-        amount: 2,
-        icon: GiftOutlined,
-        color: "#0D2818",
-    },
-]);
-
-const { useBreakpoint } = Grid;
-
-const breakpointState = useBreakpoint();
+const route = useRoute();
 
 const productStore = useProductStore();
 
-productStore.loadProducts();
+const previewImageUrl = ref(null);
 
-const handleClickDelete = (id: number) => {
-    // productStore.deleteProduct(id);
+const formats = useFormat();
+
+const useForm = Form.useForm;
+
+const formRule = useFormRule();
+
+const modelRef = reactive({
+    name: "",
+    price: "",
+    stock: "",
+    image: null as any,
+});
+
+const { validate, validateInfos } = useForm(modelRef, formRule.rules);
+
+const handleUploadChange = (info: UploadChangeParam) => {
+    // for preview
+    const res = productStore.handleChange(info) as any;
+    const status = res?.status;
+    if (status == "removed") {
+        modelRef.image = null;
+        previewImageUrl.value = null;
+        return;
+    }
+    previewImageUrl.value = res;
+
+    // for upload
+    modelRef.image = formats.convertToFile(info);
 };
 
-const handleClickEdit = (id: number) => {
-    router.push(`/stock/edit/${id}`);
+const onSubmit = async () => {
+    validate().then(async () => {
+        console.log(modelRef);
+    });
 };
 </script>
 
