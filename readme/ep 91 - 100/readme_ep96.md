@@ -1,3 +1,63 @@
+# Nuxt 3 CMS Stock Course EP.96 - Workshop - Frontend - Edit Product (Part 2) Implement logic
+
+## Outcome
+
+-   [x] Create `useFormRules.ts` in `~/composables/useFormRules.ts`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `useFormRules.ts` in `~/composables/useFormRules.ts`
+
+```ts
+// ~/composables/useFormRules.ts
+
+export const useFormRule = () => {
+    return {
+        rules: {
+            name: [
+                {
+                    required: true,
+                    message: "Please input name",
+                },
+                {
+                    min: 6,
+                    // max: 12,
+                    message: "Length should be at least 6",
+                    trigger: "blur",
+                },
+            ],
+            price: [
+                {
+                    required: true,
+                    message: "Please input price",
+                },
+            ],
+            stock: [
+                {
+                    required: true,
+                    message: "Please input amount of stock",
+                },
+            ],
+            image: [
+                {
+                    required: true,
+                    message: "Please select image",
+                },
+            ],
+        },
+    };
+};
+```
+
+2. Update `[id].vue` in `~/pages/stock/edit/[id].vue` by implement logic
+
+```vue
+<!-- ~/pages/stock/edit/[id].vue -->
+
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
@@ -231,3 +291,4 @@ const onSubmit = async () => {
 </script>
 
 <style scoped></style>
+```
