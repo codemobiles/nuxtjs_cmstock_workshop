@@ -1,4 +1,4 @@
-# Nuxt 3 CMS Stock Course EP.94 - Workshop - Frontend - Edit Product (Part 1)
+# Nuxt 3 CMS Stock Course EP.95 - Workshop - Frontend - Edit Product (Part 1)
 
 ## Outcome
 
