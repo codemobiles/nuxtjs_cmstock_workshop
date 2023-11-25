@@ -15,24 +15,18 @@ export const getProductById = async (id: string) => {
     return result;
 };
 
-export const createProduct = async (Product: CreateProductDto) => {
+export const createProduct = async (product: FormData) => {
     const result = await fetch(server.PRODUCT_URL, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Product),
+        body: product,
     });
     return result;
 };
 
-export const updateProduct = async (id: string, Product: CreateProductDto) => {
+export const updateProduct = async (id: string, product: FormData) => {
     const result = await fetch(`${server.PRODUCT_URL}/${id}`, {
         method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(Product),
+        body: product,
     });
     return result;
 };

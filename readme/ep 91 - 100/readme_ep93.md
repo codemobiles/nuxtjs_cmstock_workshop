@@ -1,3 +1,71 @@
+# Nuxt 3 CMS Stock Course EP.93 - Workshop - Frontend - Complete Create Product Page
+
+## Outcome
+
+-   [x] Implement `api` to `create.vue`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `product-api.service.ts` in `~/services/api/product-api.service.ts` (Change by remove `headers` in `createProduct` and `updateProduct`)
+
+```ts
+// ~/services/api/product-api.service.ts
+
+import { useFetcher } from "~/composables/useFetcher";
+import type { CreateProductDto } from "~/types/dtos/create-product.dto";
+import type { TProduct } from "~/types/product.type";
+import { server } from "~/utils/constants";
+
+const { fetch } = useFetcher();
+
+export const getProducts = async (): Promise<TProduct[]> => {
+    const result = await fetch(server.PRODUCT_URL);
+    return result;
+};
+
+export const getProductById = async (id: string) => {
+    const result = await fetch(`${server.PRODUCT_URL}/${id}`);
+    return result;
+};
+
+export const createProduct = async (product: FormData) => {
+    const result = await fetch(server.PRODUCT_URL, {
+        method: "POST",
+        body: product,
+    });
+    return result;
+};
+
+export const updateProduct = async (id: string, product: FormData) => {
+    const result = await fetch(`${server.PRODUCT_URL}/${id}`, {
+        method: "PUT",
+        body: product,
+    });
+    return result;
+};
+
+export const deleteProduct = async (id: string) => {
+    const result = await fetch(`${server.PRODUCT_URL}/${id}`, {
+        method: "DELETE",
+    });
+    return result;
+};
+
+export const getProductByKeyword = async (keyword: string) => {
+    const result = await fetch(`${server.PRODUCT_URL}/name/${keyword}`);
+    return result;
+};
+```
+
+2. Update `create.vue` in `~/pages/stock/create.vue`
+
+```vue
+<!-- ~/pages/stock/create.vue -->
+
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
@@ -254,3 +322,4 @@ const handleUploadChange = (info: UploadChangeParam) => {
 </script>
 
 <style scoped></style>
+```
