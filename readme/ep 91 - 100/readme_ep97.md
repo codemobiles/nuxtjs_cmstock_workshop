@@ -1,3 +1,20 @@
+# Nuxt 3 CMS Stock Course EP.97 - Workshop - Frontend - Edit Product (Part 4) Submit Form
+
+## Outcome
+
+-   [x] Submit form
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `[id].vue` in `~/pages/stock/edit/[id].vue` by implement logic
+
+```vue
+<!-- ~/pages/stock/edit/[id].vue -->
+
 <template>
     <a-row class="tw-mb-4">
         <a-col :span="24">
@@ -253,3 +270,4 @@ onMounted(async () => {
 </script>
 
 <style scoped></style>
+```
