@@ -1,3 +1,41 @@
+# Nuxt 3 CMS Stock Course EP.94 - Workshop - Frontend - Edit Product (Part 1)
+
+## Outcome
+
+-   [x] Create `edit.vue` in `~/pages/stock/edit.vue`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `[id].vue` in `~/pages/stock/edit/[id].vue`
+
+```vue
+<!-- ~/pages/stock/edit/[id].vue -->
+
+<template>
+    <div>
+        {{ route.params.id }}
+    </div>
+</template>
+
+<script setup lang="ts">
+definePageMeta({
+    layout: "default",
+});
+const route = useRoute();
+</script>
+
+<style scoped></style>
+```
+
+2. Add `router` when press edit button in `~/pages/stock/index.vue`
+
+```vue
+<!-- ~/pages/stock/index.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24" class="tw-my-1 tw-mt-2">
@@ -126,3 +164,4 @@ const handleClickEdit = (id: number) => {
 </script>
 
 <style scoped></style>
+```
