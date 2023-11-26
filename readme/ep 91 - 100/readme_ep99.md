@@ -1,3 +1,21 @@
+# Nuxt 3 CMS Stock Course EP.99 - Workshop - Frontend - Delete Product (Part 2)
+
+## Outcome
+
+-   [x] Add `alert modal` when press `delete` button
+-   [x] Add `delete` logic
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `index.vue` in `~/pages/stock` as below
+
+```vue
+<!-- ~/pages/stock/index.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24" class="tw-my-1 tw-mt-2">
@@ -166,3 +184,4 @@ const handleConfirmDelete = async () => {
 </script>
 
 <style scoped></style>
+```
