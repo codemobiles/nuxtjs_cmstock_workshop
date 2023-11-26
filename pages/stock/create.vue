@@ -222,14 +222,12 @@ const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef);
 const onSubmit = async () => {
     validate()
         .then(async () => {
-            const { name, price, stock, image } = modelRef;
-            const formData = new FormData();
-            formData.append("body", JSON.stringify({ name, price, stock }));
-            if (image) {
-                formData.append("file", image);
-            }
-            await api.createProduct(formData);
-            message.success("Create product successfully");
+            await productStore.createProduct({
+                image: modelRef.image,
+                name: modelRef.name,
+                price: +modelRef.price || 0,
+                stock: +modelRef.stock || 0,
+            });
             router.push("/stock");
         })
         .catch((err) => {

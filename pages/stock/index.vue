@@ -158,9 +158,7 @@ const handleClickEdit = (id: number) => {
 };
 
 const handleConfirmDelete = async () => {
-    await api.deleteProduct(deleteProductId.value.toString());
-    productStore.loadProducts();
-    message.success("Delete product successfully");
+    await productStore.deleteProduct(deleteProductId.value.toString());
     closeDeleteModal();
 };
 </script>

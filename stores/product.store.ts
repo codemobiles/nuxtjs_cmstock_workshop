@@ -1,6 +1,8 @@
 import { FetchingStatus } from "~/types/enums/FetchingStatus";
 import type { TProduct } from "~/types/product.type";
 import type { UploadChangeParam } from "ant-design-vue";
+import type { CreateProductDto } from "~/types/dtos/create-product.dto";
+import type { UpdateProductDto } from "~/types/dtos/update-product.dto";
 
 export const useProductStore = defineStore("product", () => {
     const products = ref<TProduct[]>([]);
@@ -107,6 +109,46 @@ export const useProductStore = defineStore("product", () => {
         preview.title = "";
     };
 
+    const createProduct = async (product: CreateProductDto) => {
+        try {
+            const { name, price, stock, image } = product;
+            const formData = new FormData();
+            formData.append("body", JSON.stringify({ name, price, stock }));
+            if (image) {
+                formData.append("file", image);
+            }
+            await api.createProduct(formData);
+            message.success("Create product successfully");
+        } catch (error) {
+            message.error("Create product failed");
+        }
+    };
+
+    const updateProduct = async (id: string, product: UpdateProductDto) => {
+        try {
+            const { name, price, stock, image } = product;
+            const formData = new FormData();
+            formData.append("body", JSON.stringify({ name, price, stock }));
+            if (typeof image == "object") {
+                formData.append("file", image);
+            }
+            await api.updateProduct(id, formData);
+            message.success("Update product successfully");
+        } catch (error) {
+            message.error("Update product failed");
+        }
+    };
+
+    const deleteProduct = async (id: string) => {
+        try {
+            await api.deleteProduct(id);
+            await loadProducts();
+            message.success("Delete product successfully");
+        } catch (error) {
+            message.error("Delete product failed");
+        }
+    };
+
     return {
         handleChange,
         autoCompleteOptions,
@@ -118,5 +160,8 @@ export const useProductStore = defineStore("product", () => {
         handlePreview,
         preview,
         handleCancel,
+        createProduct,
+        updateProduct,
+        deleteProduct,
     };
 });

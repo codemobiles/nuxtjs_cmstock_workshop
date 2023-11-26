@@ -230,13 +230,12 @@ const handleUploadChange = (info: UploadChangeParam) => {
 
 const onSubmit = async () => {
     validate().then(async () => {
-        const { name, price, stock, image } = modelRef;
-        const formData = new FormData();
-        formData.append("body", JSON.stringify({ name, price, stock }));
-        if (typeof image == "object") {
-            formData.append("file", image);
-        }
-        await api.updateProduct(route.params.id as string, formData);
+        await productStore.updateProduct(route.params.id as string, {
+            name: modelRef.name,
+            price: Number(modelRef.price) || 0,
+            stock: Number(modelRef.stock) || 0,
+            image: modelRef.image,
+        });
         router.back();
     });
 };
