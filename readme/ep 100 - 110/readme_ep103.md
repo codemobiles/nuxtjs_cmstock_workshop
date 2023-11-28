@@ -1,3 +1,20 @@
+# Nuxt 3 CMS Stock Course EP.103 - Workshop - Frontend - Report - Create report controller
+
+## Outcome
+
+-   [x] Create report controller
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Change `report.vue` in `pages/report.vue`
+
+```vue
+<!-- ~/pages/report.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -58,3 +75,24 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
+
+2. Create `top-5-price.vue` in `components/report/top-5-price.vue`
+
+```ts
+export default defineEventHandler((event) => {
+    return {
+        hello: "from top-5-price",
+    };
+});
+```
+
+3. Create `top-5-stock.vue` in `components/report/top-5-stock.vue`
+
+```ts
+export default defineEventHandler((event) => {
+    return {
+        hello: "from top-5-stock",
+    };
+});
+```
