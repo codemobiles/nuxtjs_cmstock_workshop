@@ -1,3 +1,63 @@
+# Nuxt 3 CMS Stock Course EP.105 - Workshop - Frontend - Report - Create ReportLineChart component
+
+## Outcome
+
+-   [x] Create `ReportLineChart` component
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `LineChart.vue` component in `components/report` folder
+
+```vue
+<!-- ~/components/report/LineChart.vue -->
+
+<template>
+    <a-card class="tw-rounded-md tw-drop-shadow-sm" type="inner">
+        <LineChart
+            ref="lineRef"
+            :chartData="chartData"
+            :options="options"
+            class="tw-h-[270px]"
+        />
+    </a-card>
+</template>
+
+<script setup lang="ts">
+import { LineChart } from "vue-chart-3";
+
+const props = defineProps({
+    data: Array,
+    labels: Array,
+    options: Object,
+    chartDataBgColor: Array,
+});
+
+const lineRef = ref();
+
+const chartData = computed(() => ({
+    labels: props.labels,
+    datasets: [
+        {
+            label: "My Overview",
+            data: props.data as any,
+            backgroundColor: props.chartDataBgColor,
+        },
+    ],
+}));
+</script>
+
+<style scoped></style>
+```
+
+2. Implement `ReportLineChart` component in `~/pages/report.vue` folder
+
+```vue
+<!-- ~/pages/report.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -109,3 +169,4 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
