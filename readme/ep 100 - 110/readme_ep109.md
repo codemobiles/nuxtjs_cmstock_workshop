@@ -1,3 +1,87 @@
+# Nuxt 3 CMS Stock Course EP.109 - Workshop - Frontend - Report - Pie with data from backend
+
+## Outcome
+
+-   [x] Fetch data from backend in `report.vue` page
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `chart.type.ts` in `~/types/chart.type.ts` folder
+
+```ts
+// ~/types/chart.type.ts
+
+export type ChartDataProp = {
+    labels: string[];
+    data: number[];
+    backgroundColor: string[];
+};
+
+export type ChartOptionsProp = {
+    responsive: boolean;
+    plugins: {
+        legend: {
+            position: string;
+            display: boolean;
+        };
+        title: {
+            display: boolean;
+            text: string;
+        };
+    };
+};
+```
+
+2. Create `PieChart.vue` component, in `~/components/report/PieChart.vue` folder
+
+```vue
+<!-- ~/components/report/PieChart.vue -->
+
+<template>
+    <a-card class="tw-rounded-md tw-drop-shadow-sm" type="inner">
+        <PieChart
+            ref="lineRef"
+            :chartData="chartData"
+            :options="options"
+            class="tw-h-[270px]"
+        />
+    </a-card>
+</template>
+
+<script setup lang="ts">
+import { PieChart } from "vue-chart-3";
+
+import type { ChartDataProp, ChartOptionsProp } from "~/types/chart.type";
+
+const props = defineProps({
+    data: Object as PropType<ChartDataProp>,
+    options: Object as PropType<ChartOptionsProp>,
+});
+
+const chartData = computed(() => ({
+    labels: props.data?.labels,
+    datasets: [
+        {
+            label: "Price",
+            data: props.data?.data,
+            backgroundColor: props.data?.backgroundColor,
+        },
+    ],
+}));
+</script>
+
+<style scoped></style>
+```
+
+2. Update `report.vue` by import `ReportPieChart` in `~/pages/report.vue` folder
+
+```vue
+<!-- ~/pages/report.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -160,3 +244,4 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
