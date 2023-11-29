@@ -1,3 +1,20 @@
+# Nuxt 3 CMS Stock Course EP.110 - Workshop - Frontend - Report - Shuffle Data
+
+## Outcome
+
+-   [x] Add `shuffle` logic in `report.vue` page to shuffle data in `line chart`
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `report.vue` by implement `shulffle logic` in `~/pages/report.vue` folder
+
+```vue
+<!-- ~/pages/report.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -167,3 +184,4 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
