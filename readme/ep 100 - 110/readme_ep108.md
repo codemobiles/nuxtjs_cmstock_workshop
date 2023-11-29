@@ -1,3 +1,79 @@
+# Nuxt 3 CMS Stock Course EP.108 - Workshop - Frontend - Report - Bar Chart with data from backend
+
+## Outcome
+
+-   [x] Fetch data from backend in `report.vue` page
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Create `BarChart.vue` component, in `~/components/report/BarChart.vue` folder
+
+```vue
+<!-- ~/components/report/BarChart.vue -->
+
+<template>
+    <a-card class="tw-rounded-md tw-drop-shadow-sm" type="inner">
+        <BarChart
+            ref="lineRef"
+            :chartData="chartData"
+            :options="options"
+            class="tw-h-[270px]"
+        />
+    </a-card>
+</template>
+
+<script setup lang="ts">
+import { BarChart } from "vue-chart-3";
+
+type ChartDataProp = {
+    labels: string[];
+    data: number[];
+    backgroundColor: string[];
+};
+
+type ChartOptionsProp = {
+    responsive: boolean;
+    plugins: {
+        legend: {
+            position: string;
+            display: boolean;
+        };
+        title: {
+            display: boolean;
+            text: string;
+        };
+    };
+};
+
+const props = defineProps({
+    data: Object as PropType<ChartDataProp>,
+    options: Object as PropType<ChartOptionsProp>,
+});
+
+const chartData = computed(() => ({
+    labels: props.data?.labels,
+    datasets: [
+        {
+            label: "Top 5 Most High Stock",
+            data: props.data?.data,
+            backgroundColor: props.data?.backgroundColor,
+        },
+    ],
+}));
+</script>
+
+<style scoped></style>
+```
+
+2. Update `report.vue` by import `ReportBarChart` in `~/pages/report.vue` folder
+
+```vue
+<!-- ~/pages/report.vue -->
+
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -152,3 +228,4 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
