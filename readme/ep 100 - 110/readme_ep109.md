@@ -77,7 +77,7 @@ const chartData = computed(() => ({
 <style scoped></style>
 ```
 
-2. Update `report.vue` by import `ReportPieChart` in `~/pages/report.vue` folder
+3. Update `report.vue` by import `ReportPieChart` in `~/pages/report.vue` folder
 
 ```vue
 <!-- ~/pages/report.vue -->
