@@ -1,3 +1,18 @@
+# Nuxt 3 CMS Stock Course EP.106 - Workshop - Frontend - Report - Explain Label and Datasets
+
+## Outcome
+
+-   [x] Explain Label and Datasets
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `report.vue` in `~/pages/report.vue` folder
+
+```vue
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -111,3 +126,53 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
+
+2. Update `ReportLineChart` component in `~/components/report/LineChart.vue` folder
+
+```vue
+<!-- ~/components/report/LineChart.vue -->
+
+<template>
+    <a-card class="tw-rounded-md tw-drop-shadow-sm" type="inner">
+        <LineChart
+            ref="lineRef"
+            :chartData="chartData"
+            :options="options"
+            class="tw-h-[270px]"
+        />
+    </a-card>
+</template>
+
+<script setup lang="ts">
+import { LineChart } from "vue-chart-3";
+
+const props = defineProps({
+    data: Array,
+    data2: Array,
+    labels: Array,
+    options: Object,
+    chartDataBgColor: Array,
+});
+
+const lineRef = ref();
+
+const chartData = computed(() => ({
+    labels: props.labels,
+    datasets: [
+        {
+            label: "Product A",
+            data: props.data as any,
+            backgroundColor: props.chartDataBgColor,
+        },
+        {
+            label: "Product B",
+            data: props.data2 as any,
+            backgroundColor: props.chartDataBgColor,
+        },
+    ],
+}));
+</script>
+
+<style scoped></style>
+```

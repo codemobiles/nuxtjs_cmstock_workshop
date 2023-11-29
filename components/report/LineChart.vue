@@ -14,6 +14,7 @@ import { LineChart } from "vue-chart-3";
 
 const props = defineProps({
     data: Array,
+    data2: Array,
     labels: Array,
     options: Object,
     chartDataBgColor: Array,
@@ -25,8 +26,13 @@ const chartData = computed(() => ({
     labels: props.labels,
     datasets: [
         {
-            label: "My Overview",
+            label: "Product A",
             data: props.data as any,
+            backgroundColor: props.chartDataBgColor,
+        },
+        {
+            label: "Product B",
+            data: props.data2 as any,
             backgroundColor: props.chartDataBgColor,
         },
     ],
