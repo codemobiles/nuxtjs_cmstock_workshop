@@ -1,3 +1,18 @@
+# Nuxt 3 CMS Stock Course EP.107 - Workshop - Frontend - Report - Fetch data
+
+## Outcome
+
+-   [x] Fetch data from backend in `report.vue` page
+
+## Documentation for this episode
+
+-   X
+
+## Setup
+
+1. Update `report.vue` in `~/pages/report.vue` folder
+
+```vue
 <template>
     <a-row :gutter="[0, 10]">
         <a-col :span="24">
@@ -120,3 +135,4 @@ const shuffleData = () => {
 </script>
 
 <style scoped></style>
+```
