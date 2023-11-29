@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         "@nuxtjs/tailwindcss",
         "@ant-design-vue/nuxt",
         "@pinia/nuxt",
+        "@vueuse/nuxt",
     ],
     pinia: {
         storesDirs: ["./stores/**"],
