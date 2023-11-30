@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+    nuxt_cmstock_app1:
+        image: codemobiles/nuxt_cmstock
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: nuxt_cmstock_app1
+        restart: always
+        ports:
+            - 3000:3000
+    nuxt_cmstock_app2:
+        image: codemobiles/nuxt_cmstock
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: nuxt_cmstock_app2
+        restart: always
+        ports:
+            - 3001:3000
