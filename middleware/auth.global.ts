@@ -4,7 +4,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     // CHECK AUTH BY LAYOUT
     authStore.restoreSession();
 
-    if (to.meta.layout === "default") {
+    if (to.meta.layout === "default" || to.meta.layout === undefined) {
         if (authStore.session.isLoggedIn) {
             if (to.path === "/") return await navigateTo("/stock");
             return;

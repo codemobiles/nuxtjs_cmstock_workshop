@@ -94,13 +94,13 @@ const menuList = reactive([
             { name: "index", to: "/demo", icon: "StockOutlined" },
             { name: "about", to: "/demo/about", icon: "StockOutlined" },
             {
-                name: "docs",
-                to: "/demo/docs/string",
+                name: "products",
+                to: "/demo/products",
                 icon: "StockOutlined",
             },
             {
-                name: "forum",
-                to: "/demo/docs/forum/99",
+                name: "components",
+                to: "/demo/components",
                 icon: "StockOutlined",
             },
         ],
@@ -112,7 +112,7 @@ const menuList = reactive([
         options: [
             { name: "Option 1", to: "/nav4O1" },
             { name: "Option 2", to: "/nav4O2" },
-            { name: "Option 2", to: "/nav4O3" },
+            { name: "Option 3", to: "/nav4O3" },
         ],
         isSub: true,
     },
@@ -120,7 +120,7 @@ const menuList = reactive([
         name: "Preferences",
         icon: FileOutlined,
         options: [
-            { name: "App", to: "/preferences/app" },
+            { name: "Docs", to: "/preferences/docs" },
             { name: "Theme", to: "/preferences/theme" },
         ],
         isSub: true,
